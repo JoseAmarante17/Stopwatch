@@ -4,9 +4,11 @@ seconds = 0;
 mili = 0;
 timer = null;
 
+
 //SHOWS THE CLOCK
 function base(){
-    let time = minutes + ":" + seconds + ":" + mili ;
+    let time = "0"+minutes + ":" + "0"+ seconds + ":" + mili +"0" ;
+    
     document.getElementById("MyClockDisplay").innerHTML = time;
     document.getElementById("MyClockDisplay").textContent = time;
     
@@ -14,16 +16,18 @@ function base(){
 base();
 
 
+
 //ADDS TO THE CLOCK
 function start(){
-  
+    
+ 
     if (mili != 10){
         mili = mili+1;
     }
     //AFTER EVERY 1000 MILISECONDS ONE SECOND IS ADDED AND MILI IS SET BACK TO ZERO
     if (mili == 10){
         
-            seconds ++;
+        seconds ++;
         mili = 0;
     }
     //AFTER 60 SECONDS A 1 IS ADDED TO MINUTE AND SECONDS IS SET BACK TO ZERO
@@ -35,15 +39,18 @@ function start(){
     if (minutes == 60 && seconds == 60 && mili ==10){
         alert("You have reached the maximum time limit of one hour.")
     }
-
     
-    console.log(seconds);
+    
+
     //DISPLAY
-    let time = minutes + ":" + seconds + ":" + mili;
+    let time = "0"+minutes + ":" + "0"+ seconds + ":" + mili +"0" 
     document.getElementById("MyClockDisplay").innerHTML = time;
-    document.getElementById("MyClockDisplay").textContent = time;
+    document.getElementById("MyClockDisplay").textContent = time; 
+    x = 1;
     timer = setTimeout(start,100);
-    timer ;
+    timer;
+
+   
 }
 
 function reset(){
@@ -51,7 +58,7 @@ function reset(){
     minutes = 0;
     seconds = 0;
     mili = 0;
-    let time = minutes + ":" + seconds + ":" + mili ;
+    let time = "0"+minutes + ":" + "0"+seconds + ":" + mili +"0";
     document.getElementById("MyClockDisplay").innerHTML = time;
     document.getElementById("MyClockDisplay").textContent = time;
 }
@@ -63,9 +70,7 @@ function stop(){
     let currentSeconds = seconds;
     let currentMili =mili;
 
-
-    console.log("Trying to pause")
-    let time = currentMinute + ":" + currentSeconds + ":" + currentMili ;
+    let time = "0"+currentMinute + ":" + "0"+currentSeconds + ":" + currentMili+"0" ;
     document.getElementById("MyClockDisplay").innerHTML = time;
     document.getElementById("MyClockDisplay").textContent = time;
     
